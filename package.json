@@ -1,0 +1,26 @@
+{
+  "name": "solutions",
+  "version": "1.0.0",
+  "description": "the @nowa official solution monorepo",
+  "private": true,
+  "scripts": {
+    "precommit": "lint-staged",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run build",
+    "publish": "lerna run build && lerna publish",
+    "link": "lerna exec yarn link",
+    "unlink": "lerna exec yarn unlink"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "2",
+    "eslint-plugin-prettier": "^2.5.0",
+    "husky": "^0.14.3",
+    "lerna": "^2.8.0",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2"
+  },
+  "workspaces": ["packages/*"]
+}
