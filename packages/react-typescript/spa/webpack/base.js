@@ -100,7 +100,13 @@ module.exports = ({ context, options }) => {
     resolve: {
       modules: ['node_modules'],
       extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-      plugins: [new TsconfigPathsPlugin({ configFile: path.resolve(context, './tsconfig.json') })],
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: path.resolve(context, './tsconfig.json'),
+          extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+          silent: true,
+        }),
+      ],
     },
     target: 'web',
     // Some libraries import Node modules but don't use them in the browser.
