@@ -1,0 +1,35 @@
+{
+  "name": "@nowa/solution-react-typescript",
+  "version": "0.0.1",
+  "description": "the nowa solution for typescript react projects",
+  "main": "./spa/index.js",
+  "author": {
+    "name": "Tommy Troy Lin",
+    "email": "tommytroylin@gmail.com",
+    "url": "https://github.com/tommytroylin"
+  },
+  "homepage": "https://github.com/nowa-webpack/solutions",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nowa-webpack/solutions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nowa-webpack/solutions/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@nowa/solution-react": "^0.0.1",
+    "ts-loader": "^3.5.0",
+    "tsconfig-paths-webpack-plugin": "^2.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^2"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
