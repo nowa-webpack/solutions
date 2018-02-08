@@ -2,7 +2,7 @@
 const path = require('path');
 
 const baseBuildOptions = {
-  entry: { type: 'string', description: 'entry file path', default: './src/index.ts' },
+  entry: { type: 'string', description: 'entry file path', default: './src/index.tsx' },
   outputPath: { type: 'string', description: 'build path', default: './build/' },
   browsers: { type: 'array', description: 'target browsers', default: ['ie >= 9'] },
   publicPath: { type: 'string', description: 'webpack publicPath', default: '' },
