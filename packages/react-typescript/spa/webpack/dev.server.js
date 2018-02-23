@@ -1,3 +1,5 @@
+const path = require('path');
+
 const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
 const merge = require('webpack-merge'); // eslint-disable-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
@@ -22,6 +24,7 @@ module.exports = arg =>
       arg.options.hot && new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
         title: 'Nowa Dev Server',
+        template: path.resolve(arg.context, './src/index.ejs'),
       }),
       new WatchMissingNodeModulesPlugin(),
     ].filter(Boolean),
