@@ -18,24 +18,27 @@ module.exports = ({ context, options }) => {
           test: /\.jsx?$/,
           include: path.resolve(context, './src'),
           loader: 'babel-loader',
-          options: {
-            babelrc: false,
-            presets: [
-              [
-                require.resolve('babel-preset-env'),
-                {
-                  targets: {
-                    browsers: [...options.browsers],
-                  },
-                  modules: false,
-                  spec: true,
-                  useBuiltIns: true,
-                },
-              ],
-              require.resolve('babel-preset-stage-2'),
-              require.resolve('babel-preset-react'),
-            ],
-          },
+          options: options.babelrc
+            ? { babelrc: true }
+            : {
+                babelrc: false,
+                presets: [
+                  [
+                    require.resolve('babel-preset-env'),
+                    {
+                      targets: {
+                        browsers: [...options.browsers],
+                      },
+                      modules: false,
+                      spec: true,
+                      useBuiltIns: true,
+                    },
+                  ],
+                  require.resolve('babel-preset-stage-2'),
+                  require.resolve('babel-preset-react'),
+                ],
+                plugins: [require.resolve('babel-plugin-transform-decorators')],
+              },
         },
         {
           test: /\.svg$/,

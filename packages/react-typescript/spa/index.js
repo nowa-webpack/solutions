@@ -6,6 +6,7 @@ const baseBuildOptions = {
   outputPath: { type: 'string', description: 'build path', default: './build/' },
   browsers: { type: 'array', description: 'target browsers', default: ['ie >= 9'] },
   publicPath: { type: 'string', description: 'webpack publicPath', default: '' },
+  babelrc: { type: 'boolean', description: 'babel-loader respect .babelrc', default: false },
 };
 
 module.exports = /** @type {Types.ISolution} */ ({
