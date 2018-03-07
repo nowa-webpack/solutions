@@ -1,6 +1,6 @@
 {
   "name": "@nowa/solution-react-typescript",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "the nowa solution for typescript react projects",
   "main": "./spa/index.js",
   "author": {
@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@nowa/solution-react": "^0.1.0",
+    "@nowa/solution-react": "^0.2.0",
     "ts-loader": "^3.5.0",
     "tsconfig-paths-webpack-plugin": "^2.0.0"
   },
