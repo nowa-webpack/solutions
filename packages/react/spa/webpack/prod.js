@@ -35,7 +35,6 @@ module.exports = arg =>
               {
                 loader: 'css-loader',
                 options: {
-                  importLoaders: 1,
                   minimize: true,
                 },
               },
