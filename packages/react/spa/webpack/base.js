@@ -43,6 +43,9 @@ module.exports = ({ context, options }) => {
         {
           test: /\.svg$/,
           loader: 'svg-react-loader',
+          options: {
+            name: 'SVGReactComponent'
+          },
         },
         {
           test: /\.(png|jpe?g|gif|woff|woff2|ttf|otf)$/,
