@@ -22,5 +22,8 @@
     "lint-staged": "^6.1.0",
     "prettier": "^1.10.2"
   },
-  "workspaces": ["packages/*"]
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": ["**/**"]
+  }
 }
