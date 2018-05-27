@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.3.0...@nowa/solution-react-typescript@0.3.1) (2018-05-27)
+
+
+### Bug Fixes
+
+* use babel-plugin-transform-decorators-legacy instead babel-plugin-transform-decorators ([c46d43f](https://github.com/nowa-webpack/solutions/commit/c46d43f))
+
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.2.0...@nowa/solution-react-typescript@0.3.0) (2018-05-27)
 
