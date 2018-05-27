@@ -42,7 +42,12 @@ module.exports = /** @type {Types.ISolution} */ ({
     ],
   },
   help: {
-    build: '项目构建',
-    server: '开发服务器',
+    build: {
+      _label: '构建项目',
+      _default: 'prod',
+      dev: '开发环境构建',
+      prod: '生产环境构建',
+    },
+    server: '启动开发服务器',
   },
 });

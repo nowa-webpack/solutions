@@ -1,5 +1,5 @@
 const path = require('path');
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = ({ context, options }) => {
@@ -44,7 +44,7 @@ module.exports = ({ context, options }) => {
           test: /\.svg$/,
           loader: 'svg-react-loader',
           options: {
-            name: 'SVGReactComponent'
+            name: 'SVGReactComponent',
           },
         },
         {
@@ -67,7 +67,9 @@ module.exports = ({ context, options }) => {
       new webpack.DefinePlugin({
         __VERSION__: JSON.stringify(packageJSON.version || '0.0.1'),
       }),
-      new ModuleScopePlugin(path.resolve(context, './src'), [path.resolve(context, './package.json')]),
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+      }),
     ],
     resolve: {
       modules: ['node_modules'],

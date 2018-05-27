@@ -1,7 +1,31 @@
 const path = require('path');
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin'); // eslint-disable-line import/no-extraneous-dependencies
+
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
+
+const babelLoaderOption = options =>
+  options.babelrc
+    ? { babelrc: true }
+    : {
+        babelrc: false,
+        presets: [
+          [
+            require.resolve('babel-preset-env'),
+            {
+              targets: {
+                browsers: [...options.browsers],
+              },
+              modules: false,
+              spec: true,
+              useBuiltIns: true,
+            },
+          ],
+          require.resolve('babel-preset-stage-2'),
+          require.resolve('babel-preset-react'),
+        ],
+        plugins: [require.resolve('babel-plugin-transform-decorators')],
+      };
 
 module.exports = ({ context, options }) => {
   const packageJSON = require(path.resolve(context, './package.json')); // eslint-disable-line
@@ -21,24 +45,7 @@ module.exports = ({ context, options }) => {
           use: [
             {
               loader: 'babel-loader',
-              options: {
-                babelrc: false,
-                presets: [
-                  [
-                    require.resolve('babel-preset-env'),
-                    {
-                      targets: {
-                        browsers: [...options.browsers],
-                      },
-                      modules: false,
-                      spec: true,
-                      useBuiltIns: true,
-                    },
-                  ],
-                  require.resolve('babel-preset-stage-2'),
-                  require.resolve('babel-preset-react'),
-                ],
-              },
+              options: babelLoaderOption(options),
             },
             {
               loader: 'ts-loader',
@@ -71,13 +78,14 @@ module.exports = ({ context, options }) => {
                   require.resolve('babel-preset-stage-2'),
                   require.resolve('babel-preset-react'),
                 ],
+                plugins: [require.resolve('babel-plugin-transform-decorators')],
               },
         },
         {
           test: /\.svg$/,
           loader: 'svg-react-loader',
           options: {
-            name: 'SVGReactComponent'
+            name: 'SVGReactComponent',
           },
         },
         {
@@ -96,11 +104,13 @@ module.exports = ({ context, options }) => {
       crossOriginLoading: 'anonymous',
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+      }),
       new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en|zh-cn)/),
       new webpack.DefinePlugin({
         __VERSION__: JSON.stringify(packageJSON.version || '0.0.1'),
       }),
-      new ModuleScopePlugin(path.resolve(context, './src'), [path.resolve(context, './package.json')]),
     ],
     resolve: {
       modules: ['node_modules'],

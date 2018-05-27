@@ -5,7 +5,7 @@ const base = require('./base');
 
 module.exports = arg =>
   merge(base(arg), {
-    devtool: 'eval-source-map',
+    mode: 'development',
 
     module: {
       rules: [
@@ -21,9 +21,7 @@ module.exports = arg =>
     },
 
     plugins: [
-      new webpack.NamedModulesPlugin(),
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('development'),
         __ENV__: JSON.stringify('dev'),
       }),
     ],
