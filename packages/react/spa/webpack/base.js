@@ -37,7 +37,7 @@ module.exports = ({ context, options }) => {
                   require.resolve('babel-preset-stage-2'),
                   require.resolve('babel-preset-react'),
                 ],
-                plugins: [require.resolve('babel-plugin-transform-decorators')],
+                plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
               },
         },
         {

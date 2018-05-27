@@ -24,7 +24,7 @@
     "@nowa/module-webpack": "^0.6.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
-    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
