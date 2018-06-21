@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.4.0...@nowa/solution-react-typescript@0.4.1) (2018-06-21)
+
+
+### Bug Fixes
+
+* set camelCase: 'only' on default ([c762930](https://github.com/nowa-webpack/solutions/commit/c762930))
+
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.3.1...@nowa/solution-react-typescript@0.4.0) (2018-06-21)
 
