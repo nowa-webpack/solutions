@@ -23,7 +23,7 @@ module.exports = arg =>
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { modules: arg.options.cssModules, importLoaders: 1 },
+              options: { modules: arg.options.cssModules, camelCase: 'only', importLoaders: 1 },
             },
             {
               loader: 'postcss-loader',
@@ -40,7 +40,7 @@ module.exports = arg =>
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { modules: arg.options.cssModules, importLoaders: 1 },
+              options: { modules: arg.options.cssModules, camelCase: 'only', importLoaders: 1 },
             },
             {
               loader: 'postcss-loader',
