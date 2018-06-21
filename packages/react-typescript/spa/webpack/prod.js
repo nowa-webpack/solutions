@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); // eslint-disable-line import/no-extraneous-dependencies
@@ -22,7 +23,14 @@ module.exports = arg =>
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { modules: arg.options.cssModules },
+              options: { modules: arg.options.cssModules, importLoaders: 1 },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+              },
             },
           ],
         },
@@ -32,7 +40,14 @@ module.exports = arg =>
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
-              options: { modules: arg.options.cssModules },
+              options: { modules: arg.options.cssModules, importLoaders: 1 },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+              },
             },
             'less-loader',
           ],

@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
@@ -15,7 +16,14 @@ module.exports = arg =>
             'style-loader',
             {
               loader: 'css-loader',
-              options: { modules: arg.options.cssModules },
+              options: { modules: arg.options.cssModules, importLoaders: 1 },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+              },
             },
           ],
         },
@@ -25,7 +33,14 @@ module.exports = arg =>
             'style-loader',
             {
               loader: 'css-loader',
-              options: { modules: arg.options.cssModules },
+              options: { modules: arg.options.cssModules, importLoaders: 1 },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+              },
             },
             'less-loader',
           ],
