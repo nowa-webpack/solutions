@@ -18,11 +18,24 @@ module.exports = arg =>
       rules: [
         {
           test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader'],
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: { modules: arg.options.cssModules },
+            },
+          ],
         },
         {
           test: /\.less$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: { modules: arg.options.cssModules },
+            },
+            'less-loader',
+          ],
         },
       ],
     },

@@ -1,4 +1,3 @@
-// import { Types } from '@nowa/core';
 const path = require('path');
 
 const baseBuildOptions = {
@@ -7,9 +6,10 @@ const baseBuildOptions = {
   browsers: { type: 'array', description: 'target browsers', default: ['ie >= 9'] },
   publicPath: { type: 'string', description: 'webpack publicPath', default: '' },
   babelrc: { type: 'boolean', description: 'babel-loader respect .babelrc', default: false },
+  cssModules: { type: 'boolean', description: 'enable css modules', default: false },
 };
 
-module.exports = /** @type {Types.ISolution} */ ({
+module.exports = /** @type {import(@nowa/core).Types.ISolution} */ ({
   commands: {
     build: {
       default: 'prod',

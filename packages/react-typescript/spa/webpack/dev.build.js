@@ -11,11 +11,24 @@ module.exports = arg =>
       rules: [
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: { modules: arg.options.cssModules },
+            },
+          ],
         },
         {
           test: /\.less$/,
-          use: ['style-loader', 'css-loader', 'less-loader'],
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: { modules: arg.options.cssModules },
+            },
+            'less-loader',
+          ],
         },
       ],
     },
