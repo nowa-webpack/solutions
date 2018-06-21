@@ -14,7 +14,7 @@ const babelLoaderOption = options =>
             require.resolve('babel-preset-env'),
             {
               targets: {
-                browsers: [...options.browsers],
+                browsers: options.browsers,
               },
               modules: false,
               spec: true,
