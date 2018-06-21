@@ -3,7 +3,11 @@ const path = require('path');
 const baseBuildOptions = {
   entry: { type: 'string', description: 'entry file path', default: './src/index.js' },
   outputPath: { type: 'string', description: 'build path', default: './build/' },
-  browsers: { type: 'array', description: 'target browsers', default: ['ie >= 9'] },
+  browsers: {
+    type: 'string',
+    description: 'target browsers',
+    default: '>= 1%, not ie < 9, not chrome < 40, not safari < 8, not iOS < 8, not Android < 40',
+  },
   publicPath: { type: 'string', description: 'webpack publicPath', default: '' },
   babelrc: { type: 'boolean', description: 'babel-loader respect .babelrc', default: false },
   cssModules: { type: 'boolean', description: 'enable css modules', default: false },
