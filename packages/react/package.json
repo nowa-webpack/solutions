@@ -1,6 +1,6 @@
 {
   "name": "@nowa/solution-react",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "the nowa solution for react projects",
   "main": "./spa/index.js",
   "author": {
