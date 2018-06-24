@@ -18,7 +18,9 @@ module.exports = /** @type {import(@nowa/core).Types.ISolution} */ ({
     build: {
       default: 'prod',
       dev: [
-        baseBuildOptions,
+        Object.assign({}, baseBuildOptions, {
+          profile: { type: 'boolean', description: 'output webpack profile', default: false },
+        }),
         [
           ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],
           ['webpack', path.resolve(__dirname, './webpack/dev.build.js')],
@@ -28,6 +30,7 @@ module.exports = /** @type {import(@nowa/core).Types.ISolution} */ ({
       prod: [
         Object.assign({}, baseBuildOptions, {
           supportIE8: { type: 'boolean', description: 'minify support ie8', default: false },
+          profile: { type: 'boolean', description: 'output webpack profile', default: false },
         }),
         [
           ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],

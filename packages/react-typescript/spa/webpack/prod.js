@@ -99,5 +99,6 @@ module.exports = arg =>
       new webpack.DefinePlugin({
         __ENV__: JSON.stringify('prod'),
       }),
-    ],
+      arg.options.profile && new webpack.debug.ProfilingPlugin(),
+    ].filter(Boolean),
   });
