@@ -6,6 +6,7 @@ const base = require('./dev.build');
 module.exports = arg =>
   merge(base(arg), {
     devServer: {
+      disableHostCheck: true,
       publicPath: '/',
       compress: true,
       historyApiFallback: false,
