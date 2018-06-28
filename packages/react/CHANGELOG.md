@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.5.0...@nowa/solution-react@0.6.0) (2018-06-28)
+
+
+### Features
+
+* disable cssModule for css in node_modules ([14a27f0](https://github.com/nowa-webpack/solutions/commit/14a27f0))
+* set disableHostCheck on devServer ([0143527](https://github.com/nowa-webpack/solutions/commit/0143527))
+
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.4.2...@nowa/solution-react@0.5.0) (2018-06-24)
 
