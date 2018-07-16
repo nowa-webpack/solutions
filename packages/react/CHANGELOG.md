@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.6.0...@nowa/solution-react@0.7.0) (2018-07-16)
+
+
+### Features
+
+* disable cssModules for less in node_modules ([3a27aea](https://github.com/nowa-webpack/solutions/commit/3a27aea))
+
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.5.0...@nowa/solution-react@0.6.0) (2018-06-28)
 
