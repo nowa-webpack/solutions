@@ -38,20 +38,40 @@ module.exports = arg =>
         },
         {
           test: /\.less$/,
-          use: [
-            'style-loader',
+          oneOf: [
             {
-              loader: 'css-loader',
-              options: { modules: arg.options.cssModules, camelCase: 'only', importLoaders: 1 },
+              exclude: /node_modules/,
+              use: [
+                'style-loader',
+                {
+                  loader: 'css-loader',
+                  options: { modules: arg.options.cssModules, camelCase: 'only', importLoaders: 1 },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    ident: 'postcss',
+                    plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+                  },
+                },
+                'less-loader',
+              ],
             },
             {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
-              },
+              include: /node_modules/,
+              use: [
+                'style-loader',
+                'css-loader',
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    ident: 'postcss',
+                    plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+                  },
+                },
+                'less-loader',
+              ],
             },
-            'less-loader',
           ],
         },
       ],
