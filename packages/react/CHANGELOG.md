@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.7.1...@nowa/solution-react@0.7.2) (2018-07-26)
+
+
+### Bug Fixes
+
+* unexpected token , in old browsers ([b5f78cd](https://github.com/nowa-webpack/solutions/commit/b5f78cd))
+
+
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.7.0...@nowa/solution-react@0.7.1) (2018-07-16)
 

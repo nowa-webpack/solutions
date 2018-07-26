@@ -1,6 +1,6 @@
 {
   "name": "@nowa/solution-react-typescript",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "the nowa solution for typescript react projects",
   "main": "./spa/index.js",
   "author": {
@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@nowa/solution-react": "^0.7.1",
+    "@nowa/solution-react": "^0.7.2",
     "autoprefixer": "^8.6.3",
     "postcss-loader": "^2.1.5",
     "ts-loader": "^4.3.0",
