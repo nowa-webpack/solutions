@@ -92,7 +92,6 @@ module.exports = arg =>
           sourceMap: true,
           uglifyOptions: {
             ie8: arg.options.supportIE8,
-            ecma: 8,
             warnings: true,
             compress: {
               warnings: false,
