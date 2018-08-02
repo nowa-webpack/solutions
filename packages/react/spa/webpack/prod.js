@@ -39,7 +39,20 @@ module.exports = arg =>
             },
             {
               include: /node_modules/,
-              use: [MiniCssExtractPlugin.loader, 'css-loader'],
+              use: [
+                MiniCssExtractPlugin.loader,
+                {
+                  loader: 'css-loader',
+                  options: { importLoaders: 1 },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    ident: 'postcss',
+                    plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+                  },
+                },
+              ],
             },
           ],
         },
@@ -68,7 +81,10 @@ module.exports = arg =>
               include: /node_modules/,
               use: [
                 MiniCssExtractPlugin.loader,
-                'css-loader',
+                {
+                  loader: 'css-loader',
+                  options: { importLoaders: 1 },
+                },
                 {
                   loader: 'postcss-loader',
                   options: {

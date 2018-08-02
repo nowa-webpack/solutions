@@ -32,7 +32,20 @@ module.exports = arg =>
             },
             {
               include: /node_modules/,
-              use: ['style-loader', 'css-loader'],
+              use: [
+                'style-loader',
+                {
+                  loader: 'css-loader',
+                  options: { importLoaders: 1 },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    ident: 'postcss',
+                    plugins: () => [autoprefixer({ browsers: arg.options.browsers })],
+                  },
+                },
+              ],
             },
           ],
         },
@@ -61,7 +74,10 @@ module.exports = arg =>
               include: /node_modules/,
               use: [
                 'style-loader',
-                'css-loader',
+                {
+                  loader: 'css-loader',
+                  options: { importLoaders: 1 },
+                },
                 {
                   loader: 'postcss-loader',
                   options: {
