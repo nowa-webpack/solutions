@@ -127,6 +127,7 @@ module.exports = arg =>
       new webpack.DefinePlugin({
         __ENV__: JSON.stringify('prod'),
       }),
+      new webpack.ProgressPlugin(),
       arg.options.profile && new webpack.debug.ProfilingPlugin(),
     ].filter(Boolean),
   });
