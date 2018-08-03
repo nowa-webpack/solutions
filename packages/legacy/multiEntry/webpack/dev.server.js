@@ -15,6 +15,7 @@ module.exports = arg =>
       headers: { 'Access-Control-Allow-Origin': '*' },
       port: arg.options.port === 8080 ? undefined : arg.options.port,
       open: true,
+      contentBase: arg.options.outputPath,
     },
 
     plugins: [arg.options.hot && new webpack.HotModuleReplacementPlugin()].filter(Boolean),
