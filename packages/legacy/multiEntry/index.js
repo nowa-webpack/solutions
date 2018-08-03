@@ -57,6 +57,8 @@ module.exports = /** @type {import('@nowa/core').Types.ISolution} */ ({
       }),
       [
         ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],
+        ['file', ({ context, options }) => ({ type: 'copy', from: path.resolve(context, 'html'), to: options.outputPath })],
+        ['file', ({ context, options }) => ({ type: 'copy', from: path.resolve(context, 'src/lib'), to: options.outputPath })],
         ({ options }) => (options.locale.length > 1 ? ['webpack', path.resolve(__dirname, './webpack/prodOL.js')] : undefined),
         ['webpack', path.resolve(__dirname, './webpack/prod.js')],
       ],
@@ -72,7 +74,11 @@ module.exports = /** @type {import('@nowa/core').Types.ISolution} */ ({
           default: false,
         },
       }),
-      [['webpack', path.resolve(__dirname, './webpack/dev.server.js')]],
+      [
+        ['file', ({ context, options }) => ({ type: 'copy', from: path.resolve(context, 'html'), to: options.outputPath })],
+        ['file', ({ context, options }) => ({ type: 'copy', from: path.resolve(context, 'src/lib'), to: options.outputPath })],
+        ['webpack', path.resolve(__dirname, './webpack/dev.server.js')],
+      ],
       '启动开发服务器',
     ],
   },
