@@ -45,7 +45,7 @@ module.exports = ({ context, options }) => {
                   require.resolve('babel-preset-stage-0'),
                   require.resolve('babel-preset-react'),
                 ],
-                plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
+                plugins: [require.resolve('babel-plugin-transform-decorators-legacy'), ...JSON.parse(options.babelPlugins)],
               },
         },
         {
@@ -70,6 +70,7 @@ module.exports = ({ context, options }) => {
       filename: `[name]${locale ? `-${locale}` : ''}.js`,
       chunkFilename: '[name].js',
       crossOriginLoading: 'anonymous',
+      publicPath: options.publicPath,
     },
     plugins: [
       new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en|zh-cn)/),

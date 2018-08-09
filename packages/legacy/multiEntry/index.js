@@ -38,6 +38,7 @@ const baseBuildOptions = {
   },
   skipMinify: { type: 'boolean', description: 'skip uglify', default: false },
   locale: { type: 'array', description: 'locales, maximum 2', default: ['zh-cn', 'en'] },
+  bablePlugins: { type: 'string', description: 'babel plugins config', default: '[]' },
 };
 
 module.exports = /** @type {import('@nowa/core').Types.ISolution} */ ({
