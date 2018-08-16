@@ -5,6 +5,7 @@ const webpack = require('webpack');
 module.exports = ({ context, options }) => {
   const packageJSON = require(path.resolve(context, './package.json')); // eslint-disable-line
   return {
+    context,
     entry: {
       [path
         .basename(options.entry)

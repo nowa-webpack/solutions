@@ -18,6 +18,7 @@ module.exports = ({ context, options }) => {
   })();
   const locale = options.locale[0];
   return {
+    context,
     entry,
     externals: JSON.parse(options.externals) || {},
     module: {
