@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-legacy@0.2.2...@nowa/solution-legacy@0.2.3) (2018-08-16)
+
+
+### Bug Fixes
+
+* context is missing in webpack base config ([8f37f64](https://github.com/nowa-webpack/solutions/commit/8f37f64))
+
+
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-legacy@0.2.1...@nowa/solution-legacy@0.2.2) (2018-08-16)
 
