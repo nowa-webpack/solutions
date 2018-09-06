@@ -4,29 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
 
-const babelLoaderOption = options =>
-  options.babelrc
-    ? { babelrc: true }
-    : {
-        babelrc: false,
-        presets: [
-          [
-            require.resolve('babel-preset-env'),
-            {
-              targets: {
-                browsers: options.browsers,
-              },
-              modules: false,
-              spec: true,
-              useBuiltIns: true,
-            },
-          ],
-          require.resolve('babel-preset-stage-2'),
-          require.resolve('babel-preset-react'),
-        ],
-        plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
-      };
-
 module.exports = ({ context, options }) => {
   const packageJSON = require(path.resolve(context, './package.json')); // eslint-disable-line
   return {
@@ -40,28 +17,6 @@ module.exports = ({ context, options }) => {
     },
     module: {
       rules: [
-        {
-          test: /\.tsx?$/,
-          include: path.resolve(context, './src'),
-          use: [
-            {
-              loader: 'babel-loader',
-              options: babelLoaderOption(options),
-            },
-            {
-              loader: 'ts-loader',
-              options: {
-                onlyCompileBundledFiles: true,
-              },
-            },
-          ],
-        },
-        {
-          test: /\.jsx?$/,
-          include: path.resolve(context, './src'),
-          loader: 'babel-loader',
-          options: babelLoaderOption(options),
-        },
         {
           test: /\.svg$/,
           loader: 'svg-react-loader',

@@ -1,3 +1,5 @@
+const path = require('path');
+
 const autoprefixer = require('autoprefixer'); // eslint-disable-line import/no-extraneous-dependencies
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
@@ -9,6 +11,29 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-lin
 
 const base = require('./base');
 
+const babelLoaderOption = options =>
+  options.babelrc
+    ? { babelrc: true }
+    : {
+        babelrc: false,
+        presets: [
+          [
+            require.resolve('babel-preset-env'),
+            {
+              targets: {
+                browsers: options.browsers,
+              },
+              modules: false,
+              spec: true,
+              useBuiltIns: true,
+            },
+          ],
+          require.resolve('babel-preset-stage-2'),
+          require.resolve('babel-preset-react'),
+        ],
+        plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
+      };
+
 module.exports = arg =>
   merge(base(arg), {
     bail: true,
@@ -17,6 +42,30 @@ module.exports = arg =>
 
     module: {
       rules: [
+        {
+          test: /\.tsx?$/,
+          include: path.resolve(arg.context, './src'),
+          use: [
+            {
+              loader: 'babel-loader',
+              options: babelLoaderOption(arg.options),
+            },
+            {
+              loader: 'ts-loader',
+              options: {
+                onlyCompileBundledFiles: true,
+              },
+            },
+          ],
+        },
+        {
+          test: /\.jsx?$/,
+          include: arg.options.compileNodeModules
+            ? [path.resolve(arg.context, './src'), path.resolve(arg.context, './node-modules')]
+            : path.resolve(arg.context, './src'),
+          loader: 'babel-loader',
+          options: babelLoaderOption(arg.options),
+        },
         {
           test: /\.css$/,
           oneOf: [

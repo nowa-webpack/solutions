@@ -55,6 +55,11 @@ module.exports = /** @type {import('@nowa/core').Types.ISolution} */ ({
           description: 'output webpack profile',
           default: false,
         },
+        compileNodeModules: {
+          type: 'boolean',
+          description: 'compile js files in node_modules',
+          default: true,
+        },
       }),
       [
         ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],

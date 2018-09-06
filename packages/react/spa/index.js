@@ -30,6 +30,7 @@ module.exports = /** @type {import(@nowa/core).Types.ISolution} */ ({
       prod: [
         Object.assign({}, baseBuildOptions, {
           supportIE8: { type: 'boolean', description: 'minify support ie8', default: false },
+          compileNodeModules: { type: 'boolean', description: 'compile js files in node_modules', default: true },
           profile: { type: 'boolean', description: 'output webpack profile', default: false },
         }),
         [

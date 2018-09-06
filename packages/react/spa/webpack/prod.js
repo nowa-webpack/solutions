@@ -1,3 +1,5 @@
+const path = require('path');
+
 const autoprefixer = require('autoprefixer');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const webpack = require('webpack');
@@ -17,6 +19,34 @@ module.exports = arg =>
 
     module: {
       rules: [
+        {
+          test: /\.jsx?$/,
+          include: arg.options.compileNodeModules
+            ? [path.resolve(arg.context, './src'), path.resolve(arg.context, './node-modules')]
+            : path.resolve(arg.context, './src'),
+          loader: 'babel-loader',
+          options: arg.options.babelrc
+            ? { babelrc: true }
+            : {
+                babelrc: false,
+                presets: [
+                  [
+                    require.resolve('babel-preset-env'),
+                    {
+                      targets: {
+                        browsers: arg.options.browsers,
+                      },
+                      modules: false,
+                      spec: true,
+                      useBuiltIns: true,
+                    },
+                  ],
+                  require.resolve('babel-preset-stage-2'),
+                  require.resolve('babel-preset-react'),
+                ],
+                plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
+              },
+        },
         {
           test: /\.css$/,
           oneOf: [
