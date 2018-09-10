@@ -165,7 +165,11 @@ module.exports = arg =>
             },
           },
         }),
-        new OptimizeCSSAssetsPlugin({}),
+        new OptimizeCSSAssetsPlugin({
+          cssProcessorPluginOptions: {
+            preset: ['default', { discardComments: { removeAll: true }, calc: false }],
+          },
+        }),
       ],
     },
 
