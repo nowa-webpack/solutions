@@ -31,20 +31,27 @@ module.exports = arg =>
                 babelrc: false,
                 presets: [
                   [
-                    require.resolve('babel-preset-env'),
+                    '@babel/preset-env',
                     {
-                      targets: {
-                        browsers: arg.options.browsers,
-                      },
+                      targets: arg.options.browsers,
                       modules: false,
-                      spec: true,
-                      useBuiltIns: true,
+                      loose: true,
+                      useBuiltIns: 'entry',
+                      configPath: arg.context,
+                      shippedProposals: true,
                     },
                   ],
-                  require.resolve('babel-preset-stage-2'),
-                  require.resolve('babel-preset-react'),
+                  '@babel/preset-react',
                 ],
-                plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
+                plugins: [
+                  ['@babel/plugin-proposal-class-properties', { loose: true }],
+                  ['@babel/plugin-proposal-decorators', { legacy: true }],
+                  '@babel/plugin-proposal-export-default-from',
+                  '@babel/plugin-proposal-export-namespace-from',
+                  '@babel/plugin-proposal-optional-chaining',
+                  '@babel/plugin-proposal-numeric-separator',
+                  '@babel/plugin-proposal-throw-expressions',
+                ],
               },
         },
         {

@@ -11,27 +11,34 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-lin
 
 const base = require('./base');
 
-const babelLoaderOption = options =>
-  options.babelrc
+const babelLoaderOption = arg =>
+  arg.options.babelrc
     ? { babelrc: true }
     : {
         babelrc: false,
         presets: [
           [
-            require.resolve('babel-preset-env'),
+            '@babel/preset-env',
             {
-              targets: {
-                browsers: options.browsers,
-              },
+              targets: arg.options.browsers,
               modules: false,
-              spec: true,
-              useBuiltIns: true,
+              loose: true,
+              useBuiltIns: 'entry',
+              configPath: arg.context,
+              shippedProposals: true,
             },
           ],
-          require.resolve('babel-preset-stage-2'),
-          require.resolve('babel-preset-react'),
+          '@babel/preset-react',
         ],
-        plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
+        plugins: [
+          ['@babel/plugin-proposal-class-properties', { loose: true }],
+          ['@babel/plugin-proposal-decorators', { legacy: true }],
+          '@babel/plugin-proposal-export-default-from',
+          '@babel/plugin-proposal-export-namespace-from',
+          '@babel/plugin-proposal-optional-chaining',
+          '@babel/plugin-proposal-numeric-separator',
+          '@babel/plugin-proposal-throw-expressions',
+        ],
       };
 
 module.exports = arg =>
@@ -48,12 +55,13 @@ module.exports = arg =>
           use: [
             {
               loader: 'babel-loader',
-              options: babelLoaderOption(arg.options),
+              options: babelLoaderOption(arg),
             },
             {
               loader: 'ts-loader',
               options: {
                 onlyCompileBundledFiles: true,
+                experimentalFileCaching: true,
               },
             },
           ],
