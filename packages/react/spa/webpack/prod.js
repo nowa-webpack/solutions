@@ -25,7 +25,7 @@ module.exports = arg =>
             ? [path.resolve(arg.context, './src'), path.resolve(arg.context, './node_modules')]
             : path.resolve(arg.context, './src'),
           loader: 'babel-loader',
-          options: arg.options.babelrc
+          options: arg.options.noBabelConfig
             ? {}
             : {
                 presets: [

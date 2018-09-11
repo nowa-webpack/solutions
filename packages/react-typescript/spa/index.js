@@ -10,7 +10,7 @@ const baseBuildOptions = {
     default: '>= 1%, not ie < 9, not chrome < 40, not safari < 8, not iOS < 8, not Android < 40',
   },
   publicPath: { type: 'string', description: 'webpack publicPath', default: '' },
-  babelrc: { type: 'boolean', description: 'babel-loader respect .babelrc', default: false },
+  noBabelConfig: { type: 'boolean', description: 'babel-loader with empty config', default: false },
   cssModules: { type: 'boolean', description: 'enable css modules', default: false },
 };
 

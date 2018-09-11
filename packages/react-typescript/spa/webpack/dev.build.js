@@ -7,10 +7,9 @@ const merge = require('webpack-merge'); // eslint-disable-line import/no-extrane
 const base = require('./base');
 
 const babelLoaderOption = arg =>
-  arg.options.babelrc
-    ? { babelrc: true }
+  arg.options.noBabelConfig
+    ? {}
     : {
-        babelrc: false,
         presets: [
           [
             '@babel/preset-env',

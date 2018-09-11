@@ -12,7 +12,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-lin
 const base = require('./base');
 
 const babelLoaderOption = arg =>
-  arg.options.babelrc
+  arg.options.noBabelConfig
     ? {}
     : {
         presets: [

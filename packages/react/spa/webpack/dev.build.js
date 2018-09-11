@@ -15,10 +15,9 @@ module.exports = arg =>
           test: /\.jsx?$/,
           include: path.resolve(arg.context, './src'),
           loader: 'babel-loader',
-          options: arg.options.babelrc
-            ? { babelrc: true }
+          options: arg.options.noBabelConfig
+            ? {}
             : {
-                babelrc: false,
                 presets: [
                   [
                     '@babel/preset-env',
