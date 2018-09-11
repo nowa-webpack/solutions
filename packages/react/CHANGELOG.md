@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.9.0...@nowa/solution-react@0.10.0) (2018-09-11)
+
+
+### Bug Fixes
+
+* compileNodeModules is not working ([c577d5c](https://github.com/nowa-webpack/solutions/commit/c577d5c))
+* constant() and env() parse error ([125d006](https://github.com/nowa-webpack/solutions/commit/125d006))
+
+
+### Features
+
+* upgrade to babel 7 ([9f92501](https://github.com/nowa-webpack/solutions/commit/9f92501))
+
+
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.8.1...@nowa/solution-react@0.9.0) (2018-09-06)
 
