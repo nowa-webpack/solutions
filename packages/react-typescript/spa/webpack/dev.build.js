@@ -47,7 +47,7 @@ module.exports = arg =>
           use: [
             {
               loader: 'babel-loader',
-              options: babelLoaderOption(arg.options),
+              options: babelLoaderOption(arg),
             },
             {
               loader: 'ts-loader',
@@ -62,7 +62,7 @@ module.exports = arg =>
           test: /\.jsx?$/,
           include: path.resolve(arg.context, './src'),
           loader: 'babel-loader',
-          options: babelLoaderOption(arg.options),
+          options: babelLoaderOption(arg),
         },
         {
           test: /\.css$/,

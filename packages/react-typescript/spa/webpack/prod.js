@@ -71,7 +71,7 @@ module.exports = arg =>
             ? [path.resolve(arg.context, './src'), path.resolve(arg.context, './node_modules')]
             : path.resolve(arg.context, './src'),
           loader: 'babel-loader',
-          options: babelLoaderOption(arg.options),
+          options: babelLoaderOption(arg),
         },
         {
           test: /\.css$/,
