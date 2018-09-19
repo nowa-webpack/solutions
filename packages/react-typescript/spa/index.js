@@ -33,6 +33,7 @@ module.exports = /** @type {Types.ISolution} */ ({
           supportIE8: { type: 'boolean', description: 'minify support ie8', default: false },
           compileNodeModules: { type: 'boolean', description: 'compile js files in node_modules', default: true },
           profile: { type: 'boolean', description: 'output webpack profile', default: false },
+          dropConsole: { type: 'boolean', description: 'drop console.* in uglify', default: true },
         }),
         [
           ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],

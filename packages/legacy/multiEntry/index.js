@@ -36,7 +36,6 @@ const baseBuildOptions = {
     description: 'webpack resolve.alias',
     default: '{}',
   },
-  skipMinify: { type: 'boolean', description: 'skip uglify', default: false },
   locale: { type: 'array', description: 'locales, maximum 2', default: ['zh-cn', 'en'] },
   babelPlugins: { type: 'string', description: 'babel plugins config', default: '[]' },
 };
@@ -60,6 +59,8 @@ module.exports = /** @type {import('@nowa/core').Types.ISolution} */ ({
           description: 'compile js files in node_modules',
           default: true,
         },
+        skipMinify: { type: 'boolean', description: 'skip uglify', default: false },
+        dropConsole: { type: 'boolean', description: 'drop console.* in uglify', default: true },
       }),
       [
         ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],

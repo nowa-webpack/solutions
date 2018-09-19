@@ -162,6 +162,7 @@ module.exports = arg =>
               // https://github.com/facebookincubator/create-react-app/issues/2488
               ascii_only: true,
             },
+            drop_console: arg.options.dropConsole,
           },
         }),
         new OptimizeCSSAssetsPlugin({
