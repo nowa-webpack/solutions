@@ -46,7 +46,7 @@ module.exports = arg => {
                       useBuiltIns: true,
                     },
                   ],
-                  require.resolve('babel-preset-stage-2'),
+                  require.resolve('babel-preset-stage-0'),
                   require.resolve('babel-preset-react'),
                 ],
                 plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
