@@ -172,6 +172,7 @@ module.exports = arg =>
               // Pending further investigation:
               // https://github.com/mishoo/UglifyJS2/issues/2011
               comparisons: false,
+              drop_console: arg.options.dropConsole,
             },
             mangle: {
               safari10: true,
@@ -182,7 +183,6 @@ module.exports = arg =>
               // https://github.com/facebookincubator/create-react-app/issues/2488
               ascii_only: true,
             },
-            drop_console: arg.options.dropConsole,
           },
         }),
         new OptimizeCSSAssetsPlugin({
