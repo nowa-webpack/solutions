@@ -1,6 +1,6 @@
 {
   "name": "@nowa/solution-legacy",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "the nowa solution for nowa1 projects",
   "main": "./multiEntry/index.js",
   "author": {
