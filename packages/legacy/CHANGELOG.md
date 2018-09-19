@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-legacy@0.3.1...@nowa/solution-legacy@0.3.2) (2018-09-19)
+
+
+### Bug Fixes
+
+* accidentally change stage-0 to stage-2 ([24c3933](https://github.com/nowa-webpack/solutions/commit/24c3933))
+
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-legacy@0.3.0...@nowa/solution-legacy@0.3.1) (2018-09-19)
 
