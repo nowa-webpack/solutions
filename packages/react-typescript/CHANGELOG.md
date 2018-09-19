@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.10.2"></a>
+## [0.10.2](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.10.1...@nowa/solution-react-typescript@0.10.2) (2018-09-19)
+
+
+### Features
+
+* add dropConsole option ([be14454](https://github.com/nowa-webpack/solutions/commit/be14454))
+
+
+
+
+
 <a name="0.10.1"></a>
 ## [0.10.1](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.10.0...@nowa/solution-react-typescript@0.10.1) (2018-09-11)
 
