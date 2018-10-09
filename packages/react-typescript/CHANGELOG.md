@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.11.2"></a>
+## [0.11.2](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.11.1...@nowa/solution-react-typescript@0.11.2) (2018-10-09)
+
+
+### Features
+
+* add a vendors chunk for multi entry project ([3c80137](https://github.com/nowa-webpack/solutions/commit/3c80137))
+
+
+
+
+
 <a name="0.11.1"></a>
 ## [0.11.1](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.11.0...@nowa/solution-react-typescript@0.11.1) (2018-10-09)
 
