@@ -34,7 +34,7 @@ module.exports = ({ context, options }) => {
     output: {
       path: path.resolve(context, options.outputPath),
       filename: '[name].js',
-      chunkFilename: '[name].[chunkhash].js',
+      chunkFilename: '[name].js',
       crossOriginLoading: 'anonymous',
     },
     plugins: [

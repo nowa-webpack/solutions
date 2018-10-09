@@ -27,7 +27,8 @@ module.exports = ({ context, options }) => {
       if (fs.existsSync(path.resolve(context, htmlFilePath))) {
         return new HtmlWebpackPlugin({
           template: htmlFilePath,
-          chunks: [chunkName],
+          chunks: ['vendors', chunkName],
+          filename: `${chunkName}.html`,
         });
       }
       return undefined;
@@ -57,8 +58,25 @@ module.exports = ({ context, options }) => {
     output: {
       path: path.resolve(context, options.outputPath),
       filename: '[name].js',
-      chunkFilename: '[name].[chunkhash].js',
+      chunkFilename: '[name].js',
       crossOriginLoading: 'anonymous',
+    },
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        minSize: 0,
+        maxSize: 0,
+        minChunks: 2,
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+          },
+          default: {
+            chunks: 'async',
+          },
+        },
+      },
     },
     plugins: [
       new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en|zh-cn)/),
