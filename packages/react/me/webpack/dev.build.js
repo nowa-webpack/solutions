@@ -40,6 +40,7 @@ module.exports = arg =>
                   '@babel/plugin-proposal-optional-chaining',
                   '@babel/plugin-proposal-numeric-separator',
                   '@babel/plugin-proposal-throw-expressions',
+                  '@babel/plugin-syntax-dynamic-import',
                 ],
               },
         },
