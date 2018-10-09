@@ -8,7 +8,7 @@ const getEntry = (context, entryFolderPath) => {
   const result = {};
   fileList.forEach(folderName => {
     if (folderName.slice(-4) === '.jsx') {
-      result[folderName] = `./${path.relative(context, path.resolve(context, entryFolderPath, folderName))}`;
+      result[folderName.slice(0, -4)] = `./${path.relative(context, path.resolve(context, entryFolderPath, folderName))}`;
     } else {
       result[folderName] = `./${path.relative(context, path.resolve(context, entryFolderPath, folderName, 'index.jsx'))}`;
     }

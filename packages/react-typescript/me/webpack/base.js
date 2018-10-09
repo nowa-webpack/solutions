@@ -9,10 +9,10 @@ const getEntry = (context, entryFolderPath) => {
   const fileList = fs.readdirSync(path.resolve(context, entryFolderPath));
   const result = {};
   fileList.forEach(folderName => {
-    if (folderName.slice(-4) === '.jsx') {
-      result[folderName] = `./${path.relative(context, path.resolve(context, entryFolderPath, folderName))}`;
+    if (folderName.slice(-4) === '.tsx') {
+      result[folderName.slice(0, -4)] = `./${path.relative(context, path.resolve(context, entryFolderPath, folderName))}`;
     } else {
-      result[folderName] = `./${path.relative(context, path.resolve(context, entryFolderPath, folderName, 'index.jsx'))}`;
+      result[folderName] = `./${path.relative(context, path.resolve(context, entryFolderPath, folderName, 'index.tsx'))}`;
     }
   });
   return result;
