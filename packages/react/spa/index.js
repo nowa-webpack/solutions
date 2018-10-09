@@ -1,7 +1,7 @@
 const path = require('path');
 
 const baseBuildOptions = {
-  entry: { type: 'string', description: 'entry file path', default: './src/index.js' },
+  entry: { type: 'string', description: 'entry file path', default: './src/index.jsx' },
   outputPath: { type: 'string', description: 'build path', default: './build/' },
   browsers: {
     type: 'string',
