@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.10.3...@nowa/solution-react@0.11.0) (2018-10-09)
+
+
+### Bug Fixes
+
+* incorrect entry name ([95843f7](https://github.com/nowa-webpack/solutions/commit/95843f7))
+
+
+### Features
+
+* add multi entry point support ([1d2591c](https://github.com/nowa-webpack/solutions/commit/1d2591c))
+* change default entry filename to index.jsx ([d6f1077](https://github.com/nowa-webpack/solutions/commit/d6f1077))
+
+
+
+
+
 <a name="0.10.3"></a>
 ## [0.10.3](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.10.2...@nowa/solution-react@0.10.3) (2018-09-19)
 
