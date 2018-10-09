@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.11.1"></a>
+## [0.11.1](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.11.0...@nowa/solution-react@0.11.1) (2018-10-09)
+
+
+### Features
+
+* generate html for every single chunk ([e06fdd7](https://github.com/nowa-webpack/solutions/commit/e06fdd7))
+
+
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.10.3...@nowa/solution-react@0.11.0) (2018-10-09)
 
