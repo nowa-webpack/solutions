@@ -20,9 +20,22 @@ const getEntry = (context, entryFolderPath) => {
 
 module.exports = ({ context, options }) => {
   const packageJSON = require(path.resolve(context, './package.json')); // eslint-disable-line
+  const entry = getEntry(context, options.entryFolder);
+  const htmlPlugins = Object.keys(entry)
+    .map(chunkName => {
+      const htmlFilePath = entry[chunkName].replace(/\.jsx$/, '.html');
+      if (fs.existsSync(path.resolve(context, htmlFilePath))) {
+        return new HtmlWebpackPlugin({
+          template: htmlFilePath,
+          chunks: [chunkName],
+        });
+      }
+      return undefined;
+    })
+    .filter(Boolean);
   return {
     context,
-    entry: getEntry(context, options.entryFolder),
+    entry,
     module: {
       rules: [
         {
@@ -48,13 +61,11 @@ module.exports = ({ context, options }) => {
       crossOriginLoading: 'anonymous',
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        template: './src/index.html',
-      }),
       new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en|zh-cn)/),
       new webpack.DefinePlugin({
         __VERSION__: JSON.stringify(packageJSON.version || '0.0.1'),
       }),
+      ...htmlPlugins,
     ],
     resolve: {
       modules: ['node_modules'],
