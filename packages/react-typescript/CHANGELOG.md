@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.11.4"></a>
+## [0.11.4](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.11.3...@nowa/solution-react-typescript@0.11.4) (2018-10-17)
+
+
+### Bug Fixes
+
+* Decorators transform is necessary. ([6dae30d](https://github.com/nowa-webpack/solutions/commit/6dae30d))
+
+
+
+
+
 <a name="0.11.3"></a>
 ## [0.11.3](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react-typescript@0.11.2...@nowa/solution-react-typescript@0.11.3) (2018-10-09)
 
