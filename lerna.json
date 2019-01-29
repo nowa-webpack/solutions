@@ -1,12 +1,15 @@
 {
-  "lerna": "2.8.0",
   "packages": ["packages/*"],
   "version": "independent",
   "command": {
+    "bootstrap": {
+      "npmClientArgs": ["--no-package-lock"]
+    },
     "publish": {
       "message": "chore(release): publish",
       "conventionalCommits": true,
-      "independent": true
+      "ignoreChanges": ["**/__tests__/**", "**/*.md"],
+      "signGitCommit": true
     }
   }
 }
