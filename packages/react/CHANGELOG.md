@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.5](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.11.4...@nowa/solution-react@0.11.5) (2019-01-29)
+
+
+### Bug Fixes
+
+* disable removeViewBox in cssnano ([d3cd2c6](https://github.com/nowa-webpack/solutions/commit/d3cd2c6))
+* webpack-dev-server CVE-2018-14732 ([95b8f31](https://github.com/nowa-webpack/solutions/commit/95b8f31)), closes [#1](https://github.com/nowa-webpack/solutions/issues/1)
+
+
+
+
+
 <a name="0.11.4"></a>
 ## [0.11.4](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.11.3...@nowa/solution-react@0.11.4) (2018-10-17)
 
