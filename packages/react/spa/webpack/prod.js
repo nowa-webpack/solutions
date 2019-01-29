@@ -168,7 +168,22 @@ module.exports = arg =>
         }),
         new OptimizeCSSAssetsPlugin({
           cssProcessorPluginOptions: {
-            preset: ['default', { discardComments: { removeAll: true }, calc: false }],
+            preset: [
+              'default',
+              {
+                discardComments: { removeAll: true },
+                calc: false,
+                svgo: {
+                  plugins: [
+                    {
+                      // in some cases this causes svgs to be stretched
+                      // e.g background
+                      removeViewBox: false,
+                    },
+                  ],
+                },
+              },
+            ],
           },
         }),
       ],
