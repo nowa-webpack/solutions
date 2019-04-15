@@ -173,6 +173,8 @@ module.exports = arg =>
               {
                 discardComments: { removeAll: true },
                 calc: false,
+                // https://github.com/cssnano/cssnano/issues/675
+                mergeLonghand: false,
                 svgo: {
                   plugins: [
                     {
