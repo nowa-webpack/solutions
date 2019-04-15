@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.6](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.11.5...@nowa/solution-react@0.11.6) (2019-04-15)
+
+
+### Bug Fixes
+
+* disable mergeLonghand in cssnano ([398f2aa](https://github.com/nowa-webpack/solutions/commit/398f2aa))
+
+
+
+
+
 ## [0.11.5](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-react@0.11.4...@nowa/solution-react@0.11.5) (2019-01-29)
 
 
