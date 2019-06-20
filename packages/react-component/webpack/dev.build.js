@@ -1,5 +1,6 @@
 const path = require('path');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const autoprefixer = require('autoprefixer'); // eslint-disable-line import/no-extraneous-dependencies
 const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
 const merge = require('webpack-merge'); // eslint-disable-line import/no-extraneous-dependencies
@@ -33,6 +34,24 @@ const babelLoaderOption = arg =>
           '@babel/plugin-proposal-numeric-separator',
           '@babel/plugin-proposal-throw-expressions',
           '@babel/plugin-syntax-dynamic-import',
+          [
+            'babel-plugin-import',
+            {
+              libraryName: 'saltui',
+              camel2UnderlineComponentName: false,
+              camel2DashComponentName: false,
+            },
+            'saltui',
+          ],
+          [
+            'babel-plugin-import',
+            {
+              libraryName: 'uxcore',
+              camel2UnderlineComponentName: false,
+              camel2DashComponentName: false,
+            },
+            'uxcore',
+          ],
         ],
       };
 
@@ -149,6 +168,9 @@ module.exports = arg =>
     },
 
     plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/demo/index.html',
+      }),
       new webpack.DefinePlugin({
         __ENV__: JSON.stringify('dev'),
       }),

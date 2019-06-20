@@ -1,6 +1,4 @@
 const path = require('path');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -25,9 +23,6 @@ module.exports = ({ context, options }) => {
       crossOriginLoading: 'anonymous',
     },
     plugins: [
-      new HtmlWebpackPlugin({
-        template: './src/index.html', // TODO:
-      }),
       new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^\.\/(en|zh-cn)/),
       new webpack.DefinePlugin({
         __VERSION__: JSON.stringify(packageJSON.version || '0.0.1'),

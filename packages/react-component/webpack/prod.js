@@ -7,7 +7,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer'); // eslint-d
 const merge = require('webpack-merge'); // eslint-disable-line import/no-extraneous-dependencies
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+const TerserWebpackPlugin = require('terser-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+const nodeExternals = require('webpack-node-externals');
 
 const base = require('./base');
 
@@ -38,12 +39,36 @@ const babelLoaderOption = arg =>
           '@babel/plugin-proposal-numeric-separator',
           '@babel/plugin-proposal-throw-expressions',
           '@babel/plugin-syntax-dynamic-import',
+          [
+            'babel-plugin-import',
+            {
+              libraryName: 'saltui',
+              camel2UnderlineComponentName: false,
+              camel2DashComponentName: false,
+            },
+            'saltui',
+          ],
+          [
+            'babel-plugin-import',
+            {
+              libraryName: 'uxcore',
+              camel2UnderlineComponentName: false,
+              camel2DashComponentName: false,
+            },
+            'uxcore',
+          ],
         ],
       };
 
 module.exports = arg =>
   merge(base(arg), {
     bail: true,
+
+    externals: [
+      nodeExternals({
+        whitelist: arg.options.nodeExternalWhitelist || [],
+      }),
+    ],
 
     mode: 'production',
 
@@ -68,9 +93,7 @@ module.exports = arg =>
         },
         {
           test: /\.jsx?$/,
-          include: arg.options.compileNodeModules
-            ? [path.resolve(arg.context, './src'), path.resolve(arg.context, './node_modules')]
-            : path.resolve(arg.context, './src'),
+          include: arg.options.compileNodeModules ? [path.resolve(arg.context, './src'), path.resolve(arg.context, './node_modules')] : path.resolve(arg.context, './src'),
           loader: 'babel-loader',
           options: babelLoaderOption(arg),
         },
@@ -156,14 +179,15 @@ module.exports = arg =>
         },
       ],
     },
-
+    output: {
+      libraryTarget: 'commonjs2',
+    },
     optimization: {
       minimizer: [
-        new UglifyJsPlugin({
-          cache: true,
+        new TerserWebpackPlugin({
           parallel: true,
           sourceMap: true,
-          uglifyOptions: {
+          terserOptions: {
             ie8: arg.options.supportIE8,
             warnings: true,
             compress: {
