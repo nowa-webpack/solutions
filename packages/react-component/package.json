@@ -35,6 +35,7 @@
     "@nowa/module-webpack": "^0.6.1",
     "autoprefixer": "^9.6.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.0",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
@@ -49,7 +50,8 @@
     "webpack": "^4.35.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-server": "^3.7.2",
-    "webpack-merge": "^4.2.1"
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@types/node": "^12.0.8"

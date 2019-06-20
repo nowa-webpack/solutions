@@ -21,7 +21,10 @@ module.exports = {
           entry: { type: 'string', description: 'entry file path', default: './src/index.tsx' },
           profile: { type: 'boolean', description: 'output webpack profile', default: false },
         }),
-        [['file', ({ options }) => ({ type: 'empty', from: options.outputPath })], ['webpack', path.resolve(__dirname, './webpack/dev.build.js')]],
+        [
+          ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],
+          ['webpack', path.resolve(__dirname, './webpack/dev.build.js')],
+        ],
         '开发环境构建',
       ],
       prod: [
@@ -33,7 +36,10 @@ module.exports = {
           dropConsole: { type: 'boolean', description: 'drop console.* in uglify', default: true },
           nodeExternalWhitelist: { type: 'array', description: 'whitelist for webpack-node-externals', default: [] },
         }),
-        [['file', ({ options }) => ({ type: 'empty', from: options.outputPath })], ['webpack', path.resolve(__dirname, './webpack/prod.js')]],
+        [
+          ['file', ({ options }) => ({ type: 'empty', from: options.outputPath })],
+          ['webpack', path.resolve(__dirname, './webpack/prod.js')],
+        ],
         '生产环境构建',
       ],
     },
