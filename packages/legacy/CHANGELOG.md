@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-legacy@0.3.3...@nowa/solution-legacy@0.3.4) (2020-07-29)
+
+
+### Bug Fixes
+
+* typo on node_modules ([44d4d9c](https://github.com/nowa-webpack/solutions/commit/44d4d9c6f196a4f8c5fbf52e862a7f7eb6bab6da))
+
+
+
+
+
 <a name="0.3.3"></a>
 ## [0.3.3](https://github.com/nowa-webpack/solutions/compare/@nowa/solution-legacy@0.3.2...@nowa/solution-legacy@0.3.3) (2018-09-19)
 
